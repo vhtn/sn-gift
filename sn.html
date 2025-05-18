@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surprise Gift</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffe6f0;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      text-align: center;
+    }
+    #gift-box, #card, #final-image {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    #password-input, #card, #final-image {
+      display: none;
+    }
+    #password-input.active {
+      display: inline-block;
+    }
+    #password-input {
+      margin-top: 20px;
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    #password-field {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ff69b4;
+      outline: none;
+    }
+    #submit-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    #submit-btn:hover {
+      background-color: #ff1493;
+    }
+    img {
+      max-width: 300px;
+    }
+
+#card, #final-image {
+  background: url('https://i.postimg.cc/YCWmS70W/15b63ef66e5161c4813b905bc96e4d42.png') center center / contain no-repeat;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 90vw;
+  margin: 0 auto;
+  min-height: 400px; /* hoặc điều chỉnh theo chiều cao ảnh mong muốn */
+}
+#password-input p {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #ff1493;
+  font-weight: bold;
+}
+#surprise-img {
+  margin-top: 110px; /* tăng hoặc giảm số để kéo ảnh xuống cao hơn hoặc thấp hơn */
+  display: block; /* đảm bảo margin-top hoạt động */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="gift-box" src="https://i.postimg.cc/hGF58RkV/Pngtree-holiday-gift-gift-box-cartoon-3955354.png" alt="Gift Box" />
+
+    <div id="password-input">
+  <p id="question">❓ Đoán xem ❓</p>
+  <input type="password" id="password-field" placeholder="Nhập mật khẩu" />
+  <button id="submit-btn">Mở quà</button>
+</div>
+
+
+    <div id="card">
+      <h1>🎉 Chúc mừng năm mới! 🎉 <br /> Happy new year! </h1>
+      <img id="cake" src="https://i.postimg.cc/xCVqS8Wq/a-removebg-preview.png" alt="Birthday Cake" />
+    </div>
+
+    <div id="final-image">
+      <h2> 😏 Cẩn thận mất nick đấy 😏</h2>
+      <img id="surprise-img" src="https://i.postimg.cc/6qzkzbrt/Our-memory.png" alt="Surprise" />
+    </div>
+  </div>
+
+  <script>
+    const giftBox = document.getElementById("gift-box");
+    const passwordInput = document.getElementById("password-input");
+    const submitBtn = document.getElementById("submit-btn");
+    const passwordField = document.getElementById("password-field");
+    const card = document.getElementById("card");
+    const cake = document.getElementById("cake");
+    const finalImage = document.getElementById("final-image");
+    const surpriseImg = document.getElementById("surprise-img");
+
+    giftBox.onclick = () => {
+      giftBox.style.display = "none";
+      passwordInput.classList.add("active");
+    };
+
+    submitBtn.onclick = () => {
+      if (passwordField.value === "thothan") {
+        passwordInput.style.display = "none";
+        card.style.display = "block";
+      } else {
+        alert("Non, sai rồi 😇");
+      }
+    };
+
+    cake.onclick = () => {
+      card.style.display = "none";
+      finalImage.style.display = "block";
+      surpriseImg.src = "https://i.postimg.cc/6qzkzbrt/Our-memory.png";
+    };
+  </script>
+</body>
+</html>
